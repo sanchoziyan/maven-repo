@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.alibaba.middleware</groupId>
+  <artifactId>sdk</artifactId>
+  <version>999-not-exist-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20161201.111944</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20161201111944</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>999-not-exist-20161201.111944-1</value>
+        <updated>20161201111944</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>999-not-exist-20161201.111944-1</value>
+        <updated>20161201111944</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

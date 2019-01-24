@@ -1,0 +1,620 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.taobao</groupId>
+        <artifactId>parent</artifactId>
+        <version>2.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.taobao.pandora</groupId>
+    <artifactId>pandora-boot-starter-bom</artifactId>
+    <version>2017-10-stable</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+
+    <modules>
+        <module>pandora-boot/pandora-boot-starter</module>
+        <module>pandora-boot/pandora-boot-starter-alimetrics</module>
+        <module>pandora-boot/pandora-boot-starter-diamond</module>
+        <module>pandora-boot/pandora-boot-starter-alimonitor</module>
+        <module>pandora-boot/pandora-boot-starter-hsf</module>
+        <module>pandora-boot/pandora-boot-starter-tddl</module>
+        <module>pandora-boot/pandora-boot-starter-ons</module>
+        <module>pandora-boot/pandora-boot-starter-metaq</module>
+        <module>pandora-boot/pandora-boot-starter-notify</module>
+        <module>pandora-boot/pandora-boot-starter-tair</module>
+        <module>pandora-boot/pandora-boot-starter-acl</module>
+        <module>pandora-boot/pandora-boot-starter-buc</module>
+        <module>pandora-boot/pandora-boot-starter-tbsession</module>
+        <module>pandora-boot/pandora-boot-starter-mtop</module>
+        <module>pandora-boot/pandora-boot-starter-switch</module>
+
+        <module>pandora-boot/pandora-boot-starter-tomcat8</module>
+        <module>pandora-boot/pandora-boot-starter-tomcat7</module>
+        <module>pandora-boot/pandora-boot-starter-alitomcat7</module>
+
+        <module>pandora-spring-boot-parent</module>
+
+        <module>pandora-spring-boot/pandora-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-alimetrics-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-alimetrics-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-hsf-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-hsf-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-tddl-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-tddl-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-tair-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-tair-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-ons-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-ons-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-metaq-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-metaq-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-notify-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-notify-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-alimonitor-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-alimonitor-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-diamond-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-diamond-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-sentinel-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-switchcenter-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-schedulerx-spring-boot-starter</module>
+        <module>pandora-boot/pandora-boot-starter-eagleeye</module>
+        <module>pandora-spring-boot/pandora-eagleeye-spring-boot-autoconfigure</module>
+        <module>pandora-spring-boot/pandora-eagleeye-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-jingwei-spring-boot-starter</module>
+
+        <module>pandora-spring-boot/pandora-acl-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-buc-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-tbsession-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-illidan-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-oplog-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-mtop-spring-boot-starter</module>
+        <module>pandora-spring-boot/pandora-hbase-spring-boot-starter</module>
+        <module>pandora-spring-cloud</module>
+    </modules>
+
+    <properties>
+        <maven.version>3.1.1</maven.version>
+        <junit.version>4.12</junit.version>
+        <pandora.boot.version>2.1.7.8</pandora.boot.version>
+        <middleware.sdk.version>2017-10-stable</middleware.sdk.version>
+        <sar.version>2017-10-stable</sar.version>
+        <tomcat.version>8.5.15</tomcat.version>
+        <alitomcat.version>7.0.64.1</alitomcat.version>
+        <ecl.version>4.4.2</ecl.version>
+        <logger.api.version>0.2.0</logger.api.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <javax-servlet-api>3.0</javax-servlet-api>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- sar包和sar包里插件版本的bom -->
+            <dependency>
+                <artifactId>taobao-hsf.sar-bom</artifactId>
+                <groupId>com.taobao.pandora</groupId>
+                <version>${sar.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <artifactId>logger.api</artifactId>
+                <groupId>com.taobao.middleware</groupId>
+                <version>${logger.api.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>commons-lang</artifactId>
+                <groupId>commons-lang</groupId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${javax-servlet-api}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.middleware</groupId>
+                <artifactId>sdk</artifactId>
+                <version>${middleware.sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>taobao-hsf.sar</artifactId>
+                <version>${sar.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>taobao-hsf.sar-container</artifactId>
+                <version>${sar.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>taobao-hsf.sar-all</artifactId>
+                <version>${sar.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-common</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-bootstrap</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-test</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <!-- pandora boot starter-->
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-alimetrics</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-diamond</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-alimonitor</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-eagleeye</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-hsf</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-ons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-metaq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-notify</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-tddl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-tair</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-acl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-buc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-tbsession</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-mtop</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-switch</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-tomcat7</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-alitomcat7</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-spring-boot-parent</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-starter-tomcat8</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- pandora boot web -->
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-web</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-tomcat7</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-alitomcat7</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.pandora</groupId>
+                <artifactId>pandora-boot-tomcat8</artifactId>
+                <version>${pandora.boot.version}</version>
+            </dependency>
+
+
+            <!-- pandora spring boot starter-->
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-alimetrics-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-alimetrics-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-hsf-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-hsf-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-ons-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-ons-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-metaq-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-metaq-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-notify-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-notify-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-tddl-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-tddl-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-tair-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-tair-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-diamond-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-diamond-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-alimonitor-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-alimonitor-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-eagleeye-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-eagleeye-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-acl-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-buc-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-tbsession-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-sentinel-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-switchcenter-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-schedulerx-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-jingwei-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-illidan-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-oplog-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-mtop-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>pandora-hbase-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- apache embed tomcat -->
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-el</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+
+            <!-- alibaba embed tomcat -->
+            <dependency>
+                <groupId>com.taobao.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${alitomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-el</artifactId>
+                <version>${alitomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-logging-juli</artifactId>
+                <version>${alitomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${alitomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taobao.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+                <version>${alitomcat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jdt.core.compiler</groupId>
+                <artifactId>ecj</artifactId>
+                <version>${ecl.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>1.9.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
